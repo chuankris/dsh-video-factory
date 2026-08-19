@@ -1,0 +1,62 @@
+{
+  "title": "DeepSeek Harness：先把换零件这件事做对",
+  "voice": "longanlingxin",
+  "scenes": [
+    {
+      "chapter": "01｜未来拼什么",
+      "headline": "换错零件后\n能否收场",
+      "points": ["大脑要聪明", "工作台要可控", "DSH 瞄准收场能力"],
+      "line_start": 0,
+      "line_end": 1,
+      "visual": "hook"
+    },
+    {
+      "chapter": "02｜什么是 Harness",
+      "headline": "模型是大厨\nHarness 是后厨",
+      "points": ["管工具与记忆", "管权限", "管任务循环"],
+      "line_start": 3,
+      "line_end": 4,
+      "visual": "harness"
+    },
+    {
+      "chapter": "03｜过去的问题",
+      "headline": "零件焊死\n牵一处动全身",
+      "points": ["换工具常要重启", "清理不净会残留", "局部改动可能连锁损坏"],
+      "line_start": 6,
+      "line_end": 8,
+      "visual": "plugins"
+    },
+    {
+      "chapter": "04｜时间可组合性",
+      "headline": "一切皆插件\n改动自带撤销",
+      "points": ["工具日志循环皆可拆装", "改动当场附撤销方法", "卸载时倒序还原"],
+      "line_start": 10,
+      "line_end": 12,
+      "visual": "temporal"
+    },
+    {
+      "chapter": "05｜空间可组合性",
+      "headline": "自动接线\n接口自动对准",
+      "points": ["只声明依赖", "到齐启动 · 离开停用", "换人自动重连"],
+      "line_start": 14,
+      "line_end": 16,
+      "visual": "spatial"
+    },
+    {
+      "chapter": "06｜真正的关键",
+      "headline": "改坏能退回\n才谈自主改造",
+      "points": ["可控换零件", "失败可安全退回", "打地基 ≠ 已自我进化"],
+      "line_start": 18,
+      "line_end": 20,
+      "visual": "contrast"
+    },
+    {
+      "chapter": "07｜边界与现状",
+      "headline": "别把地基\n当成大楼",
+      "points": ["换插件 ≠ 训练模型 ≠ AGI", "外部副作用未必可撤销", "MIT 开源 · 开发者预览"],
+      "line_start": 22,
+      "line_end": 23,
+      "visual": "finale"
+    }
+  ]
+}

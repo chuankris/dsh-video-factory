@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  /* Tight portrait crop: the stage contains only Haru's head and shoulders. */
+  #stage { width: 360px; height: 420px; overflow: hidden; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="./live2dcubismcore.min.js"></script>
+<script src="./node_modules/pixi.js/dist/browser/pixi.min.js"></script>
+<script src="./node_modules/pixi-live2d-display/dist/cubism4.min.js"></script>
+<script>
+(async () => {
+  const PIXI = window.PIXI;
+  const { Live2DModel } = window.PIXI.live2d;
+
+  const host = document.getElementById('stage');
+  const app = new PIXI.Application({
+    width: host.clientWidth,
+    height: host.clientHeight,
+    backgroundAlpha: 0,
+    autoDensity: true,
+    antialias: true,
+  });
+  host.appendChild(app.view);
+
+  const model = await Live2DModel.from('./haru/Haru.model3.json', { autoInteract: false });
+  const bounds = host.getBoundingClientRect();
+  // Start from the former full-body fit, then zoom to a head-and-shoulders crop.
+  const fullBodyScale = Math.min(480 / model.width, 640 / model.height) * 1.14;
+  const scale = fullBodyScale * 1.72;
+  model.anchor.set(0.5, 0.52);
+  model.scale.set(scale);
+  model.x = bounds.width * 0.5;
+  model.y = 592;
+  app.stage.addChild(model);
+
+  // Mouth driven externally via window.__setMouth(0..1).
+  let mouthValue = 0;
+  app.ticker.add(() => {
+    model.internalModel.coreModel.setParameterValueById('ParamMouthOpenY', mouthValue, 1);
+  });
+  window.__setMouth = (v) => { mouthValue = v; };
+
+  window.__avatarReady = true;
+  console.log('AVATAR_READY');
+})().catch(e => { console.error('AVATAR_FAILED', e); window.__avatarFailed = String(e); });
+</script>
+</body>
+</html>

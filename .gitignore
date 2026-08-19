@@ -1,0 +1,22 @@
+# 凭据与密钥
+.env
+DASHSCOPE_API_KEY
+
+# Live2D 模型文件（不进仓库，按 live2d-avatar/README.md 放置）
+skills/live2d-avatar/haru/
+skills/live2d-avatar/live2dcubismcore.min.js
+skills/live2d-avatar/node_modules/
+skills/live2d-avatar/synced/
+
+# 产出物
+*.mp4
+*.mp3
+*.wav
+*.png
+*.jpg
+output/
+tts_segments/
+work/
+
+# 系统
+.DS_Store
